@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 import { Card } from './components/Card';
 import { getParties } from '../../api/getParties';
+import { partiesUrlImages } from '../../partiesUrlImages';
 
 export function PartiesList() {
   const [parties, setParties] = useState();
@@ -15,7 +16,9 @@ export function PartiesList() {
     setParties(data.parties);
   };
 
-  const _renderItem = ({ item }) => <Card title={item.id} />;
+  const _renderItem = ({ item }) => (
+    <Card imageUri={partiesUrlImages[item.id]} title={item.id} />
+  );
 
   const _keyExtractor = (item, index) => item.id;
 
