@@ -4,7 +4,7 @@ import { Card } from './components/Card';
 import { getParties } from '../../api/getParties';
 import { partiesUrlImages } from '../../partiesUrlImages';
 
-export function PartiesList() {
+export function PartiesVoteList() {
   const [parties, setParties] = useState();
 
   useEffect(() => {

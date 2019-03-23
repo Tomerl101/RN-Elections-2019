@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
-import { PartiesList } from './screens/PartiesList';
+import { PartiesVoteList } from './screens/PartiesVoteList';
+import { PartiesStatusList } from './screens/PartiesStatusList';
 import { ElectionsContext } from './context/ElectionsContext';
+import { SCREEN_TYPE } from './context/ElectionsContext';
+import { NavBar } from './components/NavBar';
 
 export default function App() {
+  const [screenType, setScreenType] = useState(SCREEN_TYPE.VOTES);
+
   return (
-    <SafeAreaView style={styles.safeAreaViewStyle}>
-      <View style={styles.container}>
-        <PartiesList />
-      </View>
-    </SafeAreaView>
+    <ElectionsContext.Provider
+      value={{
+        screenType,
+        setScreenType
+      }}
+    >
+      <SafeAreaView style={styles.safeAreaViewStyle}>
+        <View style={styles.container}>
+          <NavBar />
+          {screenType == SCREEN_TYPE.VOTES && <PartiesVoteList />}
+          {screenType == SCREEN_TYPE.STATUS && <PartiesStatusList />}
+        </View>
+      </SafeAreaView>
+    </ElectionsContext.Provider>
   );
 }
 

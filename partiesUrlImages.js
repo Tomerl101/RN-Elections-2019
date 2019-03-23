@@ -1,6 +1,6 @@
 export const partiesUrlImages = {
   likud:
-    'https://kavimvenekudot.files.wordpress.com/2012/12/d79cd795d792d795-d794d79cd799d79bd795d793-d799d7a9d7a8.jpg',
+    'http://www.pedantim.co.il/wp-content/uploads/%D7%94%D7%9C%D7%99%D7%9B%D7%95%D7%93.png',
   avoda: 'https://pbs.twimg.com/profile_images/981159971831230464/_FrUFxke.jpg',
   'kahol-lavan':
     'https://pbs.twimg.com/profile_images/1098582085277757441/svcFAwt9_400x400.jpg',
