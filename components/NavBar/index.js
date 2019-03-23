@@ -14,7 +14,7 @@ export function NavBar() {
       : setScreenType(SCREEN_TYPE.VOTES);
   };
 
-  const title = screenType;
+  const title = screenType == SCREEN_TYPE.VOTES ? 'STATUS' : 'VOTES';
   return (
     <Root>
       <HeaderText>בחירות ישראל 2019</HeaderText>
