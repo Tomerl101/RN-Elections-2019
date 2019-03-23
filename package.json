@@ -1,6 +1,27 @@
 {
   "name": "ex01",
   "version": "0.0.1",
+  "checkSubmission": {
+    "ex": 1,
+    "students": [
+      {
+        "id": "203289673",
+        "fullName": "Tomer Lotan",
+        "email": "tomerl101@gmail.com"
+      },
+      {
+        "id": "207599176",
+        "fullName": "Noa Eylon",
+        "email": "noaAylon2@gmail.com"
+      }
+    ],
+    "os": "Mac",
+    "device": "iOS",
+    "deliveryDate": "03/22/2019",
+    "delay": false,
+    "delayReason": "none",
+    "comments": "none"
+  },
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -11,7 +32,6 @@
     "axios": "^0.18.0",
     "react": "16.8.3",
     "react-native": "0.59.1",
-    "react-navigation": "^3.5.1",
     "styled-components": "^4.1.3"
   },
   "devDependencies": {

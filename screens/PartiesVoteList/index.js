@@ -21,7 +21,7 @@ export function PartiesVoteList() {
     <Card imageUri={partiesUrlImages[item.id]} title={item.id} />
   );
 
-  const _keyExtractor = (item, index) => item.id;
+  const _keyExtractor = item => item.id;
 
   return (
     <FlatList

@@ -5,4 +5,5 @@ export const ButtonText = styled.Text`
   color: white;
   text-align: center;
   margin: 10px;
+  font-weight: 600;
 `;
