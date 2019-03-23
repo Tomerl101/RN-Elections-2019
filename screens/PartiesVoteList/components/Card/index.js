@@ -5,10 +5,20 @@ import { Cover } from './components/Cover';
 import { Content } from './components/Content';
 import { Image } from './components/Image';
 import { Title } from './components/Title';
+import { voteParty } from '../../../../api/voteParty';
 
 export const Card = props => (
   <Root>
-    <TouchableOpacity onPress={() => alert('hahaha')}>
+    <TouchableOpacity
+      onPress={async () => {
+        const result = await voteParty(props.title);
+        if (result) {
+          alert(`Thank you for voting ${props.title}`);
+        } else {
+          alert(`Can't vote for ${props.title}`);
+        }
+      }}
+    >
       <Cover>
         <Image
           resizeMode='cover'

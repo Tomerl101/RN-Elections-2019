@@ -12,6 +12,6 @@ export const CardStatus = props => (
         uri: partiesUrlImages[props.name]
       }}
     />
-    <Body>{props.votes}%</Body>
+    <Body>Votes:{props.votes}%</Body>
   </Root>
 );
