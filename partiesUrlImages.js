@@ -24,5 +24,6 @@ export const partiesUrlImages = {
     'https://pbs.twimg.com/profile_images/1084801615050215425/mejlkcwr_400x400.jpg',
   'ihud-miflagot-hayamin': 'http://a7.org/pictures/888/888167.jpg',
   magen:
-    'https://pbs.twimg.com/profile_images/1088884292237885440/mHkc8pl7_400x400.jpg'
+    'https://pbs.twimg.com/profile_images/1088884292237885440/mHkc8pl7_400x400.jpg',
+  'ofir-cohen': 'https://i.imgur.com/h9kLhIg.jpg'
 };

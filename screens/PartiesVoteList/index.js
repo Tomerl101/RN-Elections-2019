@@ -5,7 +5,7 @@ import { getParties } from '../../api/getParties';
 import { partiesUrlImages } from '../../partiesUrlImages';
 
 export function PartiesVoteList() {
-  const [parties, setParties] = useState();
+  const [parties, setParties] = useState([]);
 
   useEffect(() => {
     getPartiesAsync();
@@ -13,6 +13,7 @@ export function PartiesVoteList() {
 
   const getPartiesAsync = async () => {
     const { data } = await getParties();
+    data.parties.push({ id: 'ofir-cohen' });
     setParties(data.parties);
   };
 
