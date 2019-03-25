@@ -1,34 +1,49 @@
 {
   "env": {
-    "browser": true,
-    "es6": true
+    "react-native/react-native": true
   },
-  "extends": "eslint:recommended",
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parser": "babel-eslint",
   "parserOptions": {
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    },
-    "ecmaVersion": 2018
+    }
   },
-  "plugins": ["react", "react-native"],
+  "settings": {
+    "react": {
+      "version": "16"
+    }
+  },
+  "globals": {
+    "it": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "react-native",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react", "react-native", "prettier"],
   "rules": {
-    "no-use-before-define": "off",
-    "react/jsx-filename-extension": "off",
-    "react/prop-types": "off",
-    "comma-dangle": 0,
-    "react-native/no-unused-styles": 2,
-    "react-native/split-platform-components": 2,
-    "react-native/no-inline-styles": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "none"
+      }
+    ],
+    "class-methods-use-this": 0,
+    "react/prefer-stateless-function": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/jsx-no-bind": 0,
+    "react/prop-types": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-closing-tag-location": 2,
     "react-native/no-color-literals": 0,
-    "react-native/no-raw-text": 0,
-    "no-unused-vars": 0,
-    "no-undef": 0,
-    "no-console": 0
+    "import/no-commonjs": 0,
+    "import/no-nodejs-modules": 0,
+    "import/prefer-default-export": 0,
+    "no-alert": 0
   }
 }

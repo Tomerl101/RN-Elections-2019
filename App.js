@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { PartiesVoteList } from './screens/PartiesVoteList';
 import { PartiesStatusList } from './screens/PartiesStatusList';
-import { ElectionsContext } from './context/ElectionsContext';
-import { SCREEN_TYPE } from './context/ElectionsContext';
+import { ElectionsContext, SCREEN_TYPE } from './context/ElectionsContext';
 import { NavBar } from './components/NavBar';
+import { styles } from './styles';
 
 export default function App() {
   const [screenType, setScreenType] = useState(SCREEN_TYPE.VOTES);
@@ -19,21 +19,10 @@ export default function App() {
       <SafeAreaView style={styles.safeAreaViewStyle}>
         <View style={styles.container}>
           <NavBar />
-          {screenType == SCREEN_TYPE.VOTES && <PartiesVoteList />}
-          {screenType == SCREEN_TYPE.STATUS && <PartiesStatusList />}
+          {screenType === SCREEN_TYPE.VOTES && <PartiesVoteList />}
+          {screenType === SCREEN_TYPE.STATUS && <PartiesStatusList />}
         </View>
       </SafeAreaView>
     </ElectionsContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  safeAreaViewStyle: {
-    flex: 1,
-    backgroundColor: '#2f3542'
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#eee'
-  }
-});

@@ -3,14 +3,11 @@ import { FlatList } from 'react-native';
 import { getPollStatus } from '../../api/getPollStatus';
 import { CardStatus } from './components/Card.js';
 import { sortByCurrentVotes } from './helpers/sortByCurrentVotes';
+import { styles } from './style';
 
 export function PartiesStatusList() {
   const [topFiveParties, setTopFiveParties] = useState([]);
   const [partiesTotalVotes, setPartiesTotalVotes] = useState(1);
-
-  useEffect(() => {
-    getPollStatusAsync();
-  }, []);
 
   const getPollStatusAsync = async () => {
     let totalVotes = 0;
@@ -20,13 +17,17 @@ export function PartiesStatusList() {
       i => (totalVotes += i[1].currentVotes)
     );
     setPartiesTotalVotes(totalVotes);
-    sortedParties = sortByCurrentVotes(partiesWithVotes);
+    const sortedParties = sortByCurrentVotes(partiesWithVotes);
     setTopFiveParties(sortedParties.slice(0, 5));
   };
 
+  useEffect(() => {
+    getPollStatusAsync();
+  }, []);
+
   const _renderItem = ({ item }) => {
     const currVotes = item[1].currentVotes;
-    votesPercentage = ((currVotes / partiesTotalVotes) * 100).toFixed(2);
+    const votesPercentage = ((currVotes / partiesTotalVotes) * 100).toFixed(2);
 
     return <CardStatus name={item[0]} votes={votesPercentage} />;
   };
@@ -38,7 +39,7 @@ export function PartiesStatusList() {
       data={topFiveParties}
       renderItem={_renderItem}
       keyExtractor={_keyExtractor}
-      contentContainerStyle={{ margin: 10, paddingBottom: 30 }}
+      contentContainerStyle={styles.container}
     />
   );
 }
