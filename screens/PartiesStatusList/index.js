@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import { getPollStatus } from '../../api/getPollStatus';
 import { CardStatus } from './components/Card.js';
 import { sortByCurrentVotes } from './helpers/sortByCurrentVotes';
+import { getTotalVotes } from './helpers/getTotalVotes';
 import { styles } from './style';
 
 export function PartiesStatusList() {
@@ -10,12 +11,8 @@ export function PartiesStatusList() {
   const [partiesTotalVotes, setPartiesTotalVotes] = useState(1);
 
   const getPollStatusAsync = async () => {
-    let totalVotes = 0;
     const { data: partiesWithVotes } = await getPollStatus();
-    //get total votes of all parties
-    Object.entries(partiesWithVotes).forEach(
-      i => (totalVotes += i[1].currentVotes)
-    );
+    const totalVotes = getTotalVotes(partiesWithVotes);
     setPartiesTotalVotes(totalVotes);
     const sortedParties = sortByCurrentVotes(partiesWithVotes);
     setTopFiveParties(sortedParties.slice(0, 5));
